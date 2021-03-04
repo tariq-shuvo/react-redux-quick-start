@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
+import Alert from '../layout/Alert'
 
 const Login = () => {
     const initialState = {
@@ -19,9 +20,7 @@ const Login = () => {
     }
     return (
         <section className="container">
-            <div className="alert alert-danger">
-                Invalid credentials
-            </div>
+            <Alert />
             <h1 className="large text-primary">Sign In</h1>
             <p className="lead"><i className="fas fa-user"></i> Sign into Your Account</p>
             <form className="form" action="dashboard.html">
