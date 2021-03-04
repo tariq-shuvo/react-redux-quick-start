@@ -5,22 +5,27 @@ import Navbar from './components/layout/Navbar';
 import {
   BrowserRouter as Router,
   Switch,
-  Link,
   Route
 } from 'react-router-dom'
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 
+// Redux Initialization
+import {Provider} from 'react-redux'
+import store from './store'
+
 const App = () => 
-    <Router>
-      <Fragment>
-        <Navbar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-        </Switch>
-      </Fragment> 
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Fragment>
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+          </Switch>
+        </Fragment> 
+      </Router>
+    </Provider>
 
 export default App;

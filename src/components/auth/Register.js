@@ -20,9 +20,9 @@ const Register = () => {
        }) 
     }
 
-    const saveFormData = (e) => {
+    const saveFormData = async e => {
         e.preventDefault();
-        if(password != password2){
+        if(password !== password2){
             console.log("password not matched")
         }else{
             console.log(formData)

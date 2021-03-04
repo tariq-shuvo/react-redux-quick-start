@@ -1,7 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 
 const Login = () => {
+    const initialState = {
+        emai: '',
+        password:''
+    }
+
+    const [formData, setFormData] = useState(initialState)
+    
+    const {email, password} = formData
+
+    const onChange = e => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        })
+    }
     return (
         <section className="container">
             <div className="alert alert-danger">
@@ -15,6 +30,8 @@ const Login = () => {
                     type="email"
                     placeholder="Email Address"
                     name="email"
+                    value={email}
+                    onChange={(e)=>onChange(e)}
                     required
                 />
                 </div>
@@ -23,6 +40,9 @@ const Login = () => {
                     type="password"
                     placeholder="Password"
                     name="password"
+                    value={password}
+                    onChange={(e)=>onChange(e)}
+                    required
                 />
                 </div>
                 <input type="submit" className="btn btn-primary" value="Login" />
