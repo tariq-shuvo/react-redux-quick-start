@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import {setAlert} from '../../actions/alert'
 import {connect} from 'react-redux'
 import Alert from '../layout/Alert'
+import PropTypes from 'prop-types';
 
 const Register = ({setAlert}) => {
     const initialState = {
@@ -77,6 +78,10 @@ const Register = ({setAlert}) => {
       </p>
     </section>
     )
+}
+
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
 }
 
 export default connect(null, {
